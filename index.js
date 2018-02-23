@@ -13,9 +13,9 @@ var {
     Platform,
     StatusBar,
 } = require('react-native');
-
+var PropTypes = require('prop-types');
 var screen = Dimensions.get('window');
-
+var createReactClass = require('create-react-class');
 var styles = StyleSheet.create({
 
     wrapper: {
@@ -41,30 +41,30 @@ const MODAL_SIZE_AUTO = "MODAL_SIZE_AUTO";
 const ANIMATION_MODAL_DEFAULT = "DEFAULT";
 const ANIMATION_MODAL_FADE = "FADE";
 
-var ModalBox = React.createClass({
+var ModalBox = createReactClass({
 
     propTypes: {
-        isOpen: React.PropTypes.bool,
-        isDisabled: React.PropTypes.bool,
-        backdropPressToClose: React.PropTypes.bool,
-        swipeToClose: React.PropTypes.bool,
-        swipeThreshold: React.PropTypes.number,
-        swipeArea: React.PropTypes.number,
-        position: React.PropTypes.string,
-        entry: React.PropTypes.string,
-        backdrop: React.PropTypes.bool,
-        backdropOpacity: React.PropTypes.number,
-        backdropColor: React.PropTypes.string,
-        backdropContent: React.PropTypes.element,
-        animationDuration: React.PropTypes.number,
-        backButtonClose: React.PropTypes.bool,
+        isOpen: PropTypes.bool,
+        isDisabled: PropTypes.bool,
+        backdropPressToClose: PropTypes.bool,
+        swipeToClose: PropTypes.bool,
+        swipeThreshold: PropTypes.number,
+        swipeArea: PropTypes.number,
+        position: PropTypes.string,
+        entry: PropTypes.string,
+        backdrop: PropTypes.bool,
+        backdropOpacity: PropTypes.number,
+        backdropColor: PropTypes.string,
+        backdropContent: PropTypes.element,
+        animationDuration: PropTypes.number,
+        backButtonClose: PropTypes.bool,
 
-        onClosed: React.PropTypes.func,
-        onOpened: React.PropTypes.func,
-        onClosingState: React.PropTypes.func,
+        onClosed: PropTypes.func,
+        onOpened: PropTypes.func,
+        onClosingState: PropTypes.func,
 
-        modalAnimationType: React.PropTypes.string,
-        initalModalSize: React.PropTypes.string,
+        modalAnimationType: PropTypes.string,
+        initalModalSize: PropTypes.string,
     },
 
     getDefaultProps: function () {
