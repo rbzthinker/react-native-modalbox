@@ -87,6 +87,7 @@ var ModalBox = createReactClass({
 
     getInitialState: function () {
         let screenHeight = Platform.OS === 'android' ? (screen.height - StatusBar.currentHeight) : screen.height; //fix android issue, when modal open from bottom , the modal poisition is incorrect.
+        screenHeight = Platform.OS === 'ios' && (screenHeight === 812 || screen.width === 812) ? screenHeight - 78 : screenHeight; //hack for safe area iphone x
         var position = this.props.entry === 'top' ? -screenHeight : screenHeight;
         return {
             position: new Animated.Value(position),
