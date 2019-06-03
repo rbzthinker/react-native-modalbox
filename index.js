@@ -9,7 +9,7 @@ var {
     TouchableWithoutFeedback,
     Dimensions,
     Easing,
-    BackAndroid,
+    BackHandler,
     Platform,
     StatusBar,
 } = require('react-native');
@@ -452,7 +452,7 @@ var ModalBox = createReactClass({
             this.onViewLayoutCalculated = () => {
                 this.setState({});
                 this.animateOpen();
-                if(this.props.backButtonClose && Platform.OS === 'android') BackAndroid.addEventListener('hardwareBackPress', this.onBackPress)
+                if(this.props.backButtonClose && Platform.OS === 'android') BackHandler.addEventListener('hardwareBackPress', this.onBackPress)
             };
             this.setState({isAnimateOpen : true});
         }
@@ -463,7 +463,7 @@ var ModalBox = createReactClass({
         if (!this.state.isAnimateClose && (this.state.isOpen || this.state.isAnimateOpen)) {
             delete this.onViewLayoutCalculated;
             this.animateClose();
-            if(this.props.backButtonClose && Platform.OS === 'android') BackAndroid.removeEventListener('hardwareBackPress', this.onBackPress)
+            if(this.props.backButtonClose && Platform.OS === 'android') BackHandler.removeEventListener('hardwareBackPress', this.onBackPress)
         }
     }
 
